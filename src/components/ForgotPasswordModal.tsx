@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react"; // Import Dispatch and SetStateAction
+import React, { type Dispatch, type SetStateAction } from "react"; // Import Dispatch and SetStateAction
 
 interface ForgotPasswordModalProps {
   show: boolean;

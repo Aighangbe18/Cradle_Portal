@@ -26,6 +26,7 @@ import StudentUsers from "./pages/student/StudentUsers";
 import StudentFinancial from "./pages/student/StudentFinancial";
 import StudentCommunication from "./pages/student/StudentCommunication";
 import StudentAcademic from "./pages/student/StudentAcademic";
+import ScrollToTop from "./components/ScrollTop";
 
 // Public/Common Pages (you can add more)
 
@@ -40,6 +41,7 @@ function App() {
   return (
     <Router>
       {/* Navbar is always visible */}
+      <ScrollToTop />
       <Routes>
         {/* Public Routes */}
 

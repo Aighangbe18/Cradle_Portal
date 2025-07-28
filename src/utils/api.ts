@@ -1,4 +1,4 @@
-import { type User, type UserRole } from '../types/auth';
+import { type User } from '../types/auth';
 
 interface LoginResponse {
   success: boolean;
