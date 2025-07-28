@@ -1,0 +1,260 @@
+/* src/App.css */
+
+/* General resets */
+body {
+  background-color: #f8f9fa; /* light gray */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-center{
+  color: #f8f9fa;
+  font-weight: 100rem;
+}
+
+
+
+.text-primary {
+  color: #0d6efd !important; /* Bootstrap primary color */
+}
+
+
+
+.login-form-container {
+  z-index: 1;
+  position: relative;
+  margin-top: -120px; /* Pull up over the image slightly */
+}
+
+
+
+.login-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 30rem;
+  margin-bottom: 100px;
+}
+
+
+
+/* Sidebar scroll if content grows */
+.sidebar {
+  overflow-y: hidden;
+  background-color: #05022B;
+}
+
+.main-navbar .nav-link {
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.main-navbar {
+  min-height: 560px;
+  color: white;
+}
+
+.main-navbar-image {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  overflow: hidden;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-bottom: 100px;
+}
+
+.footer-section {
+  background-color: #05022B;
+  color: white;
+  border-top: 4px solid #f2f2f2;
+}
+
+
+.social-div {
+  background-color: #333;
+  padding: 1rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Mobile first adjustments */
+.login-form {
+  padding: 1rem;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .login-form {
+    padding: 2rem 4rem;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .login-form {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+img {
+  max-width: 100%;
+  
+}
+
+/* Highlight sidebar links on hover */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Maintain consistent spacing */
+.nav-link {
+  padding: 0.75rem 1rem;
+}
+
+
+.calendar-day {
+  width: 14.28%;
+  height: 100px;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  background-color: #05022B;
+  color: #dee2e6
+;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.calendar-day:hover {
+  background-color: none;
+}
+
+.calendar-day .day-number {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e9f5ff;
+}
+
+/* Ensure the root HTML and body elements fill the viewport and prevent unwanted scrollbars */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Base styles for the entire dashboard wrapper */
+.admin-dashboard-wrapper {
+  min-height: 100vh; /* Ensures the dashboard takes full viewport height */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px; /* Default width for larger screens */
+  transition: all 0.3s ease-in-out; /* Smooth transition for opening/closing */
+  background: #05022b; /* Moved background from inline style */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+/* Styles for sidebar when it's open on small screens */
+.sidebar-open {
+  transform: translateX(0%);
+  width: 250px; /* Explicitly set width when open */
+  position: fixed; /* Fix sidebar position on small screens */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1050; /* Ensure it's above other content, like modals */
+}
+
+/* Styles for sidebar when it's closed on small screens */
+.sidebar-closed {
+  transform: translateX(-100%);
+  width: 0;
+  position: fixed; /* Fix sidebar position on small screens */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1050;
+}
+
+/* Hide sidebar by default on extra small to medium screens */
+@media (max-width: 991.98px) {
+  /* This targets screens smaller than 'lg' breakpoint */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1050; /* Bootstrap modal z-index is 1050 */
+    width: 0; /* Hidden by default */
+    transform: translateX(-100%); /* Slide out of view */
+  }
+
+  .sidebar-open {
+    width: 250px; /* Show sidebar */
+    transform: translateX(0%); /* Slide into view */
+  }
+
+  /* Overlay for when sidebar is open on small screens */
+  .sidebar-open + .container-fluid::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040; /* Below sidebar, above content */
+  }
+}
+
+/* Adjust main content to push to the right when sidebar is open on large screens */
+@media (min-width: 992px) {
+  .admin-dashboard-wrapper {
+    display: flex; /* Ensure flex behavior */
+  }
+
+  .sidebar {
+    width: 250px; /* Always visible on large screens */
+    transform: translateX(0%);
+    position: relative; /* Not fixed */
+  }
+}
+
+/* Table container styling to apply background and borders */
+.responsive-table-container {
+  background-color: whitesmoke;
+  border: 2px solid white;
+  border-radius: 10px;
+  /* Instead of `justify-content: center` for display:flow, we will use Bootstrap classes or text-align */
+  margin-bottom: 50px;
+  padding-bottom: 1rem; /* Add some padding at the bottom for tables */
+  overflow-x: auto; /* Essential for responsive tables */
+}
+
+/* Table specific adjustments */
+.table {
+  min-width: 700px; /* Ensure table doesn't get too narrow on smaller screens, forcing horizontal scroll */
+}
+
+/* Adjust font sizes for smaller screens if needed */
+@media (max-width: 767.98px) {
+  /* Small screens (xs and sm) */
+  h4 {
+    font-size: 1.25rem; /* Smaller heading */
+  }
+  h5 {
+    font-size: 1.1rem; /* Smaller sub-heading */
+  }
+  .btn {
+    font-size: 0.875rem; /* Smaller button text */
+  }
+}

@@ -1,0 +1,32 @@
+.calendar-container {
+  background-color: #05022B;
+  padding: 10px;
+}
+
+.calendar-header {
+  margin-bottom: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-cell {
+  height: 30px;
+  background-color: #f1f1f1;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.calendar-cell.empty {
+  background-color: transparent;
+  cursor: default;
+}
+
+.calendar-cell.day {
+  background-color: #e9ecef;
+}
